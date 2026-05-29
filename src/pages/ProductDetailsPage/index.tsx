@@ -7,13 +7,15 @@ import StatusHandler from "../../common/utils/statusHandler";
 import Typography from "../../components/Typography";
 import ProductDetail from "../../components/ProductDetail/ProductDetail";
 import Styles from "./ProductDetailsPage.module.css";
-import { cartStore } from "../../stores/cart.store";
+import { useBoundStore } from "../../slices/bound.store";
 
 function ProductDetailsPage() {
   const { id } = useParams<{ id: string }>();
   const [product, setProduct] = useState<Product | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+
+  const addToCart = useBoundStore((state) => state.addItem);
 
   useEffect(() => {
     axios
@@ -51,7 +53,7 @@ function ProductDetailsPage() {
                 price={product.price}
                 imageUrl={product.imageSrc}
                 colors={product.colors}
-                addToCart={cartStore.addItem}
+                addToCart={addToCart}
               />
             ) : (
               <p>Produto não encontrado.</p>

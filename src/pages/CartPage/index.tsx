@@ -7,8 +7,7 @@ import Typography from "../../components/Typography";
 import Styles from "./CartPage.module.css";
 import { useReducer, useState } from "react";
 import { useToast } from "../../contexts/toast/ToastContext";
-import { useCartStore } from "../../hooks/useCartStore";
-import { cartStore } from "../../stores/cart.store";
+import { useBoundStore } from "../../slices/bound.store";
 
 type CartState = {
   quantities: Record<number, number>;
@@ -68,7 +67,8 @@ function cartReducer(state: CartState, action: CartAction) {
 }
 
 const CartPage = () => {
-  const cartItems = useCartStore((state) => state.items);
+  const cartItems = useBoundStore((state) => state.items);
+  const removeFromCart = useBoundStore((state) => state.removeItem);
 
   const { showToast } = useToast();
 
@@ -190,7 +190,7 @@ const CartPage = () => {
                     <Typography variantStyle="bodySmallBold">
                       Tamanho: único
                     </Typography>
-                    <Button onClick={() => cartStore.removeItem(item.id)}>
+                    <Button onClick={() => removeFromCart(item.id)}>
                       Excluir
                     </Button>
                   </div>
