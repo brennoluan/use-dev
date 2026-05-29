@@ -1,42 +1,21 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import axios from "axios";
-import type { Product } from "../../common/types/product";
-import { PRODUCTS_BASE_URL } from "../../common/constants/endpoints";
 import StatusHandler from "../../common/utils/statusHandler";
 import Typography from "../../components/Typography";
 import ProductDetail from "../../components/ProductDetail/ProductDetail";
 import Styles from "./ProductDetailsPage.module.css";
 import { useBoundStore } from "../../slices/bound.store";
+import { useProductDetailQuery } from "../../queries/useProductsQuery";
+import { useParams } from "react-router-dom";
 
 function ProductDetailsPage() {
   const { id } = useParams<{ id: string }>();
-  const [product, setProduct] = useState<Product | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
 
   const addToCart = useBoundStore((state) => state.addItem);
 
-  useEffect(() => {
-    axios
-      .get(PRODUCTS_BASE_URL)
-      .then((response) => {
-        const foundProduct = response.data.products.find(
-          (product: Product) => product.id.toString() === id,
-        );
-
-        if (foundProduct) {
-          setProduct(foundProduct);
-        } else {
-          setError("Produto não encontrado.");
-        }
-        setIsLoading(false);
-      })
-      .catch(() => {
-        setError("Erro ao carregar os detalhes do produto.");
-        setIsLoading(false);
-      });
-  }, [id]);
+  const {
+    data: product,
+    isError: error,
+    isPending: isLoading,
+  } = useProductDetailQuery(Number(id));
 
   return (
     <main className="container">
