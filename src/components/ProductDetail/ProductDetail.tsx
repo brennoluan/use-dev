@@ -27,6 +27,14 @@ function ProductDetail({
 }: ProductDetailProps) {
   const [selectedValue, setSelectedValue] = useState("");
 
+  const hasDiscount = price > 25;
+  const discountedPrice = hasDiscount ? price * 0.85 : price;
+  const savings = price - discountedPrice;
+
+  const promoMessage = hasDiscount
+    ? `Economize R$ ${savings.toFixed(2)}!`
+    : null;
+
   const handleAddToCart = () => {
     const product = {
       id,
@@ -48,13 +56,57 @@ function ProductDetail({
     <section className={Styles.productDetail}>
       <div className={Styles.imageContainer}>
         <img src={imageUrl} alt={title} className={Styles.productImage} />
+
+        {hasDiscount && <span className={Styles.discountBadge}>15% OFF</span>}
       </div>
 
       <div className={Styles.detailContainer}>
         <Typography variant="h4">{title}</Typography>
         <Typography variantStyle="bodyLarge">{description}</Typography>
         <Typography variantStyle="headingSemiBold">
-          {price.toFixed(2)}
+          {/* Preço com desconto aplicado */}
+          <div className={Styles.priceContainer}>
+            {hasDiscount ? (
+              <>
+                {/* Preço original riscado */}
+                <Typography
+                  variantStyle="bodyLarge"
+                  style={{
+                    textDecoration: "line-through",
+                    color: "#999",
+                    marginRight: "12px",
+                  }}
+                >
+                  R$ {price.toFixed(2)}
+                </Typography>
+
+                {/* Preço com desconto em destaque */}
+                <Typography
+                  variantStyle="headingSemiBold"
+                  style={{ color: "#8fff24" }}
+                >
+                  R$ {discountedPrice.toFixed(2)}
+                </Typography>
+
+                {/* Mensagem de economia */}
+                <Typography
+                  variantStyle="bodySmall"
+                  style={{
+                    color: "#8fff24",
+                    marginTop: "8px",
+                    display: "block",
+                  }}
+                >
+                  🎉 {promoMessage}
+                </Typography>
+              </>
+            ) : (
+              /* Preço normal (sem desconto) */
+              <Typography variantStyle="headingSemiBold">
+                R$ {price.toFixed(2)}
+              </Typography>
+            )}
+          </div>
         </Typography>
 
         <div className={Styles.radioGroup}>
