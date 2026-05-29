@@ -16,6 +16,7 @@ function ProductDetailsPage() {
   const [error, setError] = useState<string | null>(null);
 
   const addToCart = useBoundStore((state) => state.addItem);
+
   useEffect(() => {
     axios
       .get(PRODUCTS_BASE_URL)
