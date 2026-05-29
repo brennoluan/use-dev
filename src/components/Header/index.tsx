@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { useCart } from "../../contexts/CartContext";
 import { LogoIcon } from "../../common/icons/LogoIcon";
 import { CarrinhoIcon } from "../../common/icons/CarrinhoIcon";
 import { PerfilIcon } from "../../common/icons/PerfilIcon";
@@ -8,13 +7,14 @@ import { SearchIcon } from "../../common/icons/SearchIcon";
 import Input from "../Input";
 import Typography from "../Typography";
 import Styles from "./Header.module.css";
+import { useCartStore } from "../../hooks/useCartStore";
 
 type HeaderProps = {
   onSearch: (query: string) => void;
 };
 
 const Header = ({ onSearch }: HeaderProps) => {
-  const { cartCount } = useCart();
+  const cartCount = useCartStore((state) => state.totalItems);
   const [query, setQuery] = useState<string>("");
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
