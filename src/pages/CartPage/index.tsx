@@ -1,5 +1,4 @@
 import { useNavigate } from "react-router-dom";
-import { useCart } from "../../contexts/CartContext";
 import { ShoppingBagIcon } from "../../common/icons/ShoppingBagIcon";
 import Button from "../../components/Button";
 import Divider from "../../components/Divider";
@@ -8,6 +7,8 @@ import Typography from "../../components/Typography";
 import Styles from "./CartPage.module.css";
 import { useReducer, useState } from "react";
 import { useToast } from "../../contexts/toast/ToastContext";
+import { useCartStore } from "../../hooks/useCartStore";
+import { cartStore } from "../../stores/cart.store";
 
 type CartState = {
   quantities: Record<number, number>;
@@ -67,7 +68,7 @@ function cartReducer(state: CartState, action: CartAction) {
 }
 
 const CartPage = () => {
-  const { cartItems, removeFromCart } = useCart();
+  const cartItems = useCartStore((state) => state.items);
 
   const { showToast } = useToast();
 
@@ -189,7 +190,7 @@ const CartPage = () => {
                     <Typography variantStyle="bodySmallBold">
                       Tamanho: único
                     </Typography>
-                    <Button onClick={() => removeFromCart(item.id)}>
+                    <Button onClick={() => cartStore.removeItem(item.id)}>
                       Excluir
                     </Button>
                   </div>
