@@ -7,6 +7,17 @@ import ProductList from "../../components/ProductList";
 import Typography from "../../components/Typography";
 import { useProductsQuery } from "../../queries/useProductsQuery";
 import { useCategoriesQuery } from "../../queries/useCategoriesQuery";
+import { useProductMutation } from "../../mutations/useProductMutations";
+
+const newProduct = {
+  id: Date.now(),
+  label: `Camiseta ${Date.now()}`,
+  price: 28,
+  colors: ["Bege", "Branca", "Cinza"],
+  imageSrc:
+    "https://raw.githubusercontent.com/gss-patricia/use-dev-assets/refs/heads/main/cards-produtos/cards-home/desktop-e-tablet/capy.png",
+  description: "Camiseta 100% algodão.",
+};
 
 function HomePage() {
   const handleSubscribe = (email: string) => {
@@ -25,6 +36,8 @@ function HomePage() {
     isError: isErrorProducts,
   } = useProductsQuery();
 
+  const { mutate: createProduct } = useProductMutation();
+
   return (
     <>
       <HeroBanner
@@ -39,6 +52,11 @@ function HomePage() {
           onClick={() => console.log("ver novidades")}
           size="large"
           text="Ver as novidades!"
+        />
+        <Button
+          onClick={() => createProduct(newProduct)}
+          size="large"
+          text="Adicionar produto"
         />
       </HeroBanner>
       <main className="container">
