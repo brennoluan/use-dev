@@ -7,14 +7,14 @@ import { SearchIcon } from "../../common/icons/SearchIcon";
 import Input from "../Input";
 import Typography from "../Typography";
 import Styles from "./Header.module.css";
-import { useCartStore } from "../../hooks/useCartStore";
+import { useBoundStore } from "../../slices/bound.store";
 
 type HeaderProps = {
   onSearch: (query: string) => void;
 };
 
 const Header = ({ onSearch }: HeaderProps) => {
-  const cartCount = useCartStore((state) => state.totalItems);
+  const cartCount = useBoundStore((state) => state.items.length);
   const [query, setQuery] = useState<string>("");
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
