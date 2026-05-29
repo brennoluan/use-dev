@@ -78,3 +78,61 @@
   justify-content: space-between;
   color: var(--purple);
 }
+
+.quantityControl {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 8px 0;
+}
+
+.quantityButton {
+  background-color: #8fff24;
+  color: #000;
+  border: none;
+  border-radius: 4px;
+  width: 32px;
+  height: 32px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.quantityButton:hover:not(:disabled) {
+  background-color: #7de01f;
+  transform: scale(1.1);
+}
+
+.quantityButton:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.couponApplied {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(143, 255, 36, 0.1);
+  padding: 12px;
+  border-radius: 8px;
+  margin: 16px 0;
+  border: 1px solid #8fff24;
+}
+
+.clearCoupon {
+  background: none;
+  border: none;
+  color: #ff4444;
+  font-size: 14px;
+  cursor: pointer;
+  text-decoration: underline;
+  padding: 4px 8px;
+  transition: all 0.2s;
+}
+
+.clearCoupon:hover {
+  color: #cc0000;
+  font-weight: bold;
+}
