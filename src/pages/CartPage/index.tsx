@@ -7,6 +7,7 @@ import Field from "../../components/Field";
 import Typography from "../../components/Typography";
 import Styles from "./CartPage.module.css";
 import { useReducer, useState } from "react";
+import { useToast } from "../../contexts/toast/ToastContext";
 
 type CartState = {
   quantities: Record<number, number>;
@@ -68,6 +69,8 @@ function cartReducer(state: CartState, action: CartAction) {
 const CartPage = () => {
   const { cartItems, removeFromCart } = useCart();
 
+  const { showToast } = useToast();
+
   const [couponInput, setCouponInput] = useState("");
 
   const [state, dispatch] = useReducer(cartReducer, {
@@ -94,7 +97,16 @@ const CartPage = () => {
   const handleApplyCoupon = () => {
     if (!couponInput.trim()) return;
 
+    const upperCoupon = couponInput.toUpperCase();
+    const validCoupons = ["SAVE10", "SAVE15", "SAVE20"];
+
     dispatch({ type: "APPLY_COUPON", payload: couponInput });
+
+    if (validCoupons.includes(upperCoupon)) {
+      showToast(`Cupom "${upperCoupon}" aplicado com sucesso!`, "success");
+    } else {
+      showToast("Cupom inválido!", "error");
+    }
   };
 
   const handleClearCoupon = () => {
