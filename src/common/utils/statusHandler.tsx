@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 
 type StatusHandlerProps = {
   isLoading: boolean;
-  error: string | null;
+  error: boolean | string | null;
   children: ReactNode;
 };
 
