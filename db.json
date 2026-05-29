@@ -26,7 +26,11 @@
       "id": "1",
       "label": "Camiseta Capy",
       "price": 28,
-      "colors": ["Bege", "Branca", "Cinza"],
+      "colors": [
+        "Bege",
+        "Branca",
+        "Cinza"
+      ],
       "imageSrc": "https://raw.githubusercontent.com/gss-patricia/use-dev-assets/refs/heads/main/cards-produtos/cards-home/desktop-e-tablet/capy.png",
       "description": "Camiseta 100% algodão."
     },
@@ -34,7 +38,11 @@
       "id": "2",
       "label": "Mousepad Café",
       "price": 18,
-      "colors": ["Preto", "Roxo", "Cinza"],
+      "colors": [
+        "Preto",
+        "Roxo",
+        "Cinza"
+      ],
       "imageSrc": "https://raw.githubusercontent.com/gss-patricia/use-dev-assets/main/cards-produtos/cards-home/desktop-e-tablet/mousepad.png",
       "description": "Mousepad código e café."
     },
@@ -42,7 +50,10 @@
       "id": "3",
       "label": "Caneca Bug",
       "price": 28,
-      "colors": ["Preto", "Branco"],
+      "colors": [
+        "Preto",
+        "Branco"
+      ],
       "imageSrc": "https://raw.githubusercontent.com/gss-patricia/use-dev-assets/main/cards-produtos/cards-home/desktop-e-tablet/caneca-bug.png",
       "description": "Caneca ceramica bug"
     },
@@ -50,7 +61,10 @@
       "id": "4",
       "label": "Boné 404",
       "price": 25,
-      "colors": ["Preto", "Branco"],
+      "colors": [
+        "Preto",
+        "Branco"
+      ],
       "imageSrc": "https://raw.githubusercontent.com/gss-patricia/use-dev-assets/main/cards-produtos/cards-home/desktop-e-tablet/bone-404.png",
       "description": "Boné alta qualidade."
     },
@@ -58,7 +72,10 @@
       "id": "5",
       "label": "Quadro While",
       "price": 22,
-      "colors": ["60cm", "90cm"],
+      "colors": [
+        "60cm",
+        "90cm"
+      ],
       "imageSrc": "https://raw.githubusercontent.com/gss-patricia/use-dev-assets/main/cards-produtos/cards-home/desktop-e-tablet/quadro.png",
       "description": "Quadro em baixo relevo."
     },
@@ -66,7 +83,10 @@
       "id": "6",
       "label": "Copo Vida de Dev",
       "price": 28,
-      "colors": ["Preto", "Branco"],
+      "colors": [
+        "Preto",
+        "Branco"
+      ],
       "imageSrc": "https://raw.githubusercontent.com/gss-patricia/use-dev-assets/main/cards-produtos/cards-home/desktop-e-tablet/copo.png",
       "description": "Copo de plástico redondo."
     },
@@ -82,10 +102,99 @@
       "id": "8",
       "label": "Camiseta Estágios",
       "price": 35,
-      "colors": ["Preto", "Branca", "Cinza"],
+      "colors": [
+        "Preto",
+        "Branca",
+        "Cinza"
+      ],
       "imageSrc": "https://raw.githubusercontent.com/gss-patricia/use-dev-assets/main/cards-produtos/cards-home/desktop-e-tablet/camiseta.png",
+      "description": "Camiseta 100% algodão."
+    },
+    {
+      "id": "lWIbWMZsz-M",
+      "label": "Camiseta 1780094414608",
+      "price": 28,
+      "colors": [
+        "Bege",
+        "Branca",
+        "Cinza"
+      ],
+      "imageSrc": "https://raw.githubusercontent.com/gss-patricia/use-dev-assets/refs/heads/main/cards-produtos/cards-home/desktop-e-tablet/capy.png",
+      "description": "Camiseta 100% algodão."
+    },
+    {
+      "id": "nRszjyZayxM",
+      "label": "Camiseta 1780094414608",
+      "price": 28,
+      "colors": [
+        "Bege",
+        "Branca",
+        "Cinza"
+      ],
+      "imageSrc": "https://raw.githubusercontent.com/gss-patricia/use-dev-assets/refs/heads/main/cards-produtos/cards-home/desktop-e-tablet/capy.png",
+      "description": "Camiseta 100% algodão."
+    },
+    {
+      "id": "Pcf15IsnGK0",
+      "label": "Camiseta 1780094414608",
+      "price": 28,
+      "colors": [
+        "Bege",
+        "Branca",
+        "Cinza"
+      ],
+      "imageSrc": "https://raw.githubusercontent.com/gss-patricia/use-dev-assets/refs/heads/main/cards-produtos/cards-home/desktop-e-tablet/capy.png",
+      "description": "Camiseta 100% algodão."
+    },
+    {
+      "id": "B-EPN-xBJkQ",
+      "label": "Camiseta 1780094414608",
+      "price": 28,
+      "colors": [
+        "Bege",
+        "Branca",
+        "Cinza"
+      ],
+      "imageSrc": "https://raw.githubusercontent.com/gss-patricia/use-dev-assets/refs/heads/main/cards-produtos/cards-home/desktop-e-tablet/capy.png",
+      "description": "Camiseta 100% algodão."
+    },
+    {
+      "id": "C1alhHZTMCI",
+      "label": "Camiseta 1780094414608",
+      "price": 28,
+      "colors": [
+        "Bege",
+        "Branca",
+        "Cinza"
+      ],
+      "imageSrc": "https://raw.githubusercontent.com/gss-patricia/use-dev-assets/refs/heads/main/cards-produtos/cards-home/desktop-e-tablet/capy.png",
+      "description": "Camiseta 100% algodão."
+    },
+    {
+      "id": "FZT-UuOm0-M",
+      "label": "Camiseta 1780094414608",
+      "price": 28,
+      "colors": [
+        "Bege",
+        "Branca",
+        "Cinza"
+      ],
+      "imageSrc": "https://raw.githubusercontent.com/gss-patricia/use-dev-assets/refs/heads/main/cards-produtos/cards-home/desktop-e-tablet/capy.png",
+      "description": "Camiseta 100% algodão."
+    },
+    {
+      "id": "ypisZXJ5YMk",
+      "label": "Camiseta 1780094414608",
+      "price": 28,
+      "colors": [
+        "Bege",
+        "Branca",
+        "Cinza"
+      ],
+      "imageSrc": "https://raw.githubusercontent.com/gss-patricia/use-dev-assets/refs/heads/main/cards-produtos/cards-home/desktop-e-tablet/capy.png",
       "description": "Camiseta 100% algodão."
     }
   ],
-  "orders": []
+  "orders": [],
+  "$schema": "./node_modules/json-server/schema.json"
 }
