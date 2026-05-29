@@ -1,0 +1,91 @@
+{
+  "categories": [
+    {
+      "id": "1",
+      "label": "Roupas",
+      "imageSrc": "https://raw.githubusercontent.com/gss-patricia/use-dev-assets/refs/heads/main/categorias/desktop/categorias.png"
+    },
+    {
+      "id": "2",
+      "label": "Decoração",
+      "imageSrc": "https://raw.githubusercontent.com/gss-patricia/use-dev-assets/refs/heads/main/categorias/desktop/decoracao.png"
+    },
+    {
+      "id": "3",
+      "label": "Acessórios",
+      "imageSrc": "https://raw.githubusercontent.com/gss-patricia/use-dev-assets/refs/heads/main/categorias/desktop/acessorios.png"
+    },
+    {
+      "id": "4",
+      "label": "Canecas",
+      "imageSrc": "https://raw.githubusercontent.com/gss-patricia/use-dev-assets/refs/heads/main/categorias/desktop/canecas.png"
+    }
+  ],
+  "products": [
+    {
+      "id": "1",
+      "label": "Camiseta Capy",
+      "price": 28,
+      "colors": ["Bege", "Branca", "Cinza"],
+      "imageSrc": "https://raw.githubusercontent.com/gss-patricia/use-dev-assets/refs/heads/main/cards-produtos/cards-home/desktop-e-tablet/capy.png",
+      "description": "Camiseta 100% algodão."
+    },
+    {
+      "id": "2",
+      "label": "Mousepad Café",
+      "price": 18,
+      "colors": ["Preto", "Roxo", "Cinza"],
+      "imageSrc": "https://raw.githubusercontent.com/gss-patricia/use-dev-assets/main/cards-produtos/cards-home/desktop-e-tablet/mousepad.png",
+      "description": "Mousepad código e café."
+    },
+    {
+      "id": "3",
+      "label": "Caneca Bug",
+      "price": 28,
+      "colors": ["Preto", "Branco"],
+      "imageSrc": "https://raw.githubusercontent.com/gss-patricia/use-dev-assets/main/cards-produtos/cards-home/desktop-e-tablet/caneca-bug.png",
+      "description": "Caneca ceramica bug"
+    },
+    {
+      "id": "4",
+      "label": "Boné 404",
+      "price": 25,
+      "colors": ["Preto", "Branco"],
+      "imageSrc": "https://raw.githubusercontent.com/gss-patricia/use-dev-assets/main/cards-produtos/cards-home/desktop-e-tablet/bone-404.png",
+      "description": "Boné alta qualidade."
+    },
+    {
+      "id": "5",
+      "label": "Quadro While",
+      "price": 22,
+      "colors": ["60cm", "90cm"],
+      "imageSrc": "https://raw.githubusercontent.com/gss-patricia/use-dev-assets/main/cards-produtos/cards-home/desktop-e-tablet/quadro.png",
+      "description": "Quadro em baixo relevo."
+    },
+    {
+      "id": "6",
+      "label": "Copo Vida de Dev",
+      "price": 28,
+      "colors": ["Preto", "Branco"],
+      "imageSrc": "https://raw.githubusercontent.com/gss-patricia/use-dev-assets/main/cards-produtos/cards-home/desktop-e-tablet/copo.png",
+      "description": "Copo de plástico redondo."
+    },
+    {
+      "id": "7",
+      "label": "Abridor de Garrafa",
+      "price": 12,
+      "colors": [],
+      "imageSrc": "https://raw.githubusercontent.com/gss-patricia/use-dev-assets/main/cards-produtos/cards-home/desktop-e-tablet/abridor.png",
+      "description": "Abridor 100% aluminio."
+    },
+    {
+      "id": "8",
+      "label": "Camiseta Estágios",
+      "price": 35,
+      "colors": ["Preto", "Branca", "Cinza"],
+      "imageSrc": "https://raw.githubusercontent.com/gss-patricia/use-dev-assets/main/cards-produtos/cards-home/desktop-e-tablet/camiseta.png",
+      "description": "Camiseta 100% algodão."
+    }
+  ],
+  "orders": []
+}
