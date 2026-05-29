@@ -3,14 +3,13 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import type { Product } from "../../common/types/product";
 import { PRODUCTS_BASE_URL } from "../../common/constants/endpoints";
-import { useCart } from "../../contexts/CartContext";
 import StatusHandler from "../../common/utils/statusHandler";
 import Typography from "../../components/Typography";
 import ProductDetail from "../../components/ProductDetail/ProductDetail";
 import Styles from "./ProductDetailsPage.module.css";
+import { cartStore } from "../../stores/cart.store";
 
 function ProductDetailsPage() {
-  const { addToCart } = useCart();
   const { id } = useParams<{ id: string }>();
   const [product, setProduct] = useState<Product | null>(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -21,7 +20,7 @@ function ProductDetailsPage() {
       .get(PRODUCTS_BASE_URL)
       .then((response) => {
         const foundProduct = response.data.products.find(
-          (product: Product) => product.id.toString() === id
+          (product: Product) => product.id.toString() === id,
         );
 
         if (foundProduct) {
@@ -52,7 +51,7 @@ function ProductDetailsPage() {
                 price={product.price}
                 imageUrl={product.imageSrc}
                 colors={product.colors}
-                addToCart={addToCart}
+                addToCart={cartStore.addItem}
               />
             ) : (
               <p>Produto não encontrado.</p>
