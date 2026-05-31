@@ -1,0 +1,52 @@
+.filtersSection {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.filtersButton {
+  position: relative;
+}
+
+.filtersBadge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: #8fff24;
+  color: #000;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: bold;
+  border: 2px solid white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.activeFilters {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  background: #f0f0f0;
+  border-radius: 8px;
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.activeFiltersLabel {
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
+
+.filterChip {
+  padding: 0.25rem 0.75rem;
+  background: white;
+  border-radius: 16px;
+  font-size: 0.875rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
