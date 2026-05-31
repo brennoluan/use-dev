@@ -1,8 +1,13 @@
 import type { Product } from "../common/types/product";
+import type { ProductSearchParams } from "../common/types/search";
 import { api } from "../services/api";
 
-export async function fetchProducts(): Promise<Product[]> {
-  const { data } = await api.get<Product[]>("/products");
+export async function fetchProducts(
+  filters?: Partial<ProductSearchParams>,
+): Promise<Product[]> {
+  const { data } = await api.get<Product[]>("/products", {
+    params: filters,
+  });
   return data;
 }
 
@@ -17,11 +22,14 @@ export async function createProduct(product: Product): Promise<Product> {
 }
 
 // const newProduct: Product = {
-//   id: Date.now(),
-//   label: `Camiseta ${Date.now()}`,
-//   price: 28,
-//   colors: ["Bege", "Branca", "Cinza"],
-//   imageSrc:
-//     "https://raw.githubusercontent.com/gss-patricia/use-dev-assets/refs/heads/main/cards-produtos/cards-home/desktop-e-tablet/capy.png",
-//   description: "Camiseta 100% algodão.",
-// };
+//     "id": Date.now(),
+//     "label": `Camiseta ${Date.now()}`,
+//     "price": 28,
+//     "colors": [
+//       "Bege",
+//       "Branca",
+//       "Cinza"
+//     ],
+//     "imageSrc": "https://raw.githubusercontent.com/gss-patricia/use-dev-assets/refs/heads/main/cards-produtos/cards-home/desktop-e-tablet/capy.png",
+//     "description": "Camiseta 100% algodão."
+//   }

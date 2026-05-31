@@ -1,11 +1,13 @@
 import { useQuery } from "@tanstack/react-query";
 import { queryKeys } from "../services/query";
 import { fetchProductById, fetchProducts } from "../requests/products.request";
+import type { ProductSearchParams } from "../common/types/search";
 
-export function useProductsQuery() {
+export function useProductsQuery(filters?: Partial<ProductSearchParams>) {
   return useQuery({
-    queryKey: queryKeys.products,
-    queryFn: fetchProducts,
+    queryKey: queryKeys.products(filters),
+    queryFn: () => fetchProducts(filters),
+    placeholderData: (previousData) => previousData,
   });
 }
 

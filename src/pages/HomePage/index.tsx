@@ -7,7 +7,11 @@ import ProductList from "../../components/ProductList";
 import Typography from "../../components/Typography";
 import { useProductsQuery } from "../../queries/useProductsQuery";
 import { useCategoriesQuery } from "../../queries/useCategoriesQuery";
+import { useState } from "react";
+import { useProductFilters } from "../../hooks/useProductFilters";
+import styles from "./HomePage.module.css";
 import { useProductMutation } from "../../mutations/useProductMutations";
+import { ProductFiltersDialog } from "../../components/ProductFIltersDialog";
 
 const newProduct = {
   id: Date.now(),
@@ -20,21 +24,24 @@ const newProduct = {
 };
 
 function HomePage() {
+  const [isFiltersOpen, setIsFiltersOpen] = useState(false);
+  const { filters, hasActiveFilters } = useProductFilters();
+
   const handleSubscribe = (email: string) => {
     console.log(`Usuário inscrito com o email: ${email}`);
   };
 
   const {
     data: categories,
-    isPending: isPendingCategories,
-    isError: isErrorCategories,
+    isPending: isLoadingCategories,
+    isError: categoriesError,
   } = useCategoriesQuery();
 
   const {
     data: products,
     isPending: isPendingProducts,
     isError: isErrorProducts,
-  } = useProductsQuery();
+  } = useProductsQuery(hasActiveFilters ? filters : undefined);
 
   const { mutate: createProduct } = useProductMutation();
 
@@ -60,18 +67,59 @@ function HomePage() {
         />
       </HeroBanner>
       <main className="container">
-        <StatusHandler
-          isLoading={isPendingCategories}
-          error={isErrorCategories}
-        >
+        <StatusHandler isLoading={isLoadingCategories} error={categoriesError}>
           <Categories categories={categories || []} />
         </StatusHandler>
+
+        <div className={styles.filtersSection}>
+          <Typography variant="h2">Produtos</Typography>
+          <div className={styles.filtersButton}>
+            <Button onClick={() => setIsFiltersOpen(true)} text="🔍 Filtros" />
+            {hasActiveFilters && (
+              <span className={styles.filtersBadge}>
+                {Object.keys(filters).length}
+              </span>
+            )}
+          </div>
+        </div>
+
+        {hasActiveFilters && (
+          <div className={styles.activeFilters}>
+            <Typography
+              variant="p"
+              variantStyle="bodySemiBold"
+              className={styles.activeFiltersLabel}
+            >
+              Filtros ativos:
+            </Typography>
+            {filters.price_gte !== undefined && (
+              <span className={styles.filterChip}>
+                Preço mín: R$ {filters.price_gte}
+              </span>
+            )}
+            {filters.price_lte !== undefined && (
+              <span className={styles.filterChip}>
+                Preço máx: R$ {filters.price_lte}
+              </span>
+            )}
+            {filters._sort && (
+              <span className={styles.filterChip}>
+                Ordenar: {filters._sort}
+              </span>
+            )}
+          </div>
+        )}
 
         <StatusHandler isLoading={isPendingProducts} error={isErrorProducts}>
           <ProductList title="Promoções especiais" products={products || []} />
         </StatusHandler>
       </main>
       <Newsletter onSubscribe={handleSubscribe} />
+
+      <ProductFiltersDialog
+        isOpen={isFiltersOpen}
+        onClose={() => setIsFiltersOpen(false)}
+      />
     </>
   );
 }

@@ -1,8 +1,9 @@
 import { QueryClient } from "@tanstack/react-query";
+import type { ProductSearchParams } from "../common/types/search";
 
 export const queryKeys = {
-  products: ["products"],
-  productDetail: (id: number) => ["product", "detail", id],
+  products: (filters?: Partial<ProductSearchParams>) => ["products", filters],
+  productDetail: (id: number) => ["products", "detail", id],
   categories: ["categories"],
 };
 
